@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 0.3s;
+        }
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+        .tool-card {
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    
+    /* Existing styles remain the same */
+    
+    /* Dark mode styles */
+    .dark body {
+        background-color: #1a202c;
+        color: #e2e8f0;
+    }
+    
+    .dark .bg-white {
+        background-color: #2d3748;
+    }
+    
+    .dark .text-gray-800 {
+        color: #e2e8f0;
+    }
+    
+    .dark .text-gray-600 {
+        color: #a0aec0;
+    }
+    
+    .dark .border-gray-200 {
+        border-color: #4a5568;
+    }
+    
+    .dark .bg-gray-50 {
+        background-color: #4a5568;
+    }
+    
+    .dark .bg-gray-800 {
+        background-color: #1a202c;
+    }
+    
+    .dark .bg-indigo-600 {
+        background-color: #4c51bf;
+    }
+    
+    .dark .bg-indigo-700 {
+        background-color: #434190;
+    }
+    
+    .dark .shadow-md {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+    }
+</style>
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl md:text-3xl font-bold">Utility Hub</h1>
+                
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#dashboard" class="nav-link hover:text-indigo-200 transition">Dashboard</a></li>
+                        <li><a href="#age-calculator" class="nav-link hover:text-indigo-200 transition">Age Calculator</a></li>
+                        <li><a href="#bmi-calculator" class="nav-link hover:text-indigo-200 transition">BMI Calculator</a></li>
+                        <li><a href="#pomodoro" class="nav-link hover:text-indigo-200 transition">Pomodoro</a></li>
+                        <li><a href="#countdown" class="nav-link hover:text-indigo-200 transition">Countdown</a></li>
+                        <li><a href="#todo" class="nav-link hover:text-indigo-200 transition">To-Do</a></li>
+                        <li><a href="#calendar" class="nav-link hover:text-indigo-200 transition">Calendar</a></li>
+                        <li><a href="#weather" class="nav-link hover:text-indigo-200 transition">Weather</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- In the header section, modify the container div -->
+        <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                <i class="fas fa-moon text-white"></i>
+            </button>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <nav class="hidden md:block">
+            <!-- Existing nav links remain the same -->
+        </nav>
+    </div>
+</div>
+
+       
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-indigo-700 pb-4 px-4">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="#dashboard" class="nav-link block py-2 hover:text-indigo-200 transition">Dashboard</a></li>
+                <li><a href="#age-calculator" class="nav-link block py-2 hover:text-indigo-200 transition">Age Calculator</a></li>
+                <li><a href="#bmi-calculator" class="nav-link block py-2 hover:text-indigo-200 transition">BMI Calculator</a></li>
+                <li><a href="#pomodoro" class="nav-link block py-2 hover:text-indigo-200 transition">Pomodoro</a></li>
+                <li><a href="#countdown" class="nav-link block py-2 hover:text-indigo-200 transition">Countdown</a></li>
+                <li><a href="#todo" class="nav-link block py-2 hover:text-indigo-200 transition">To-Do</a></li>
+                <li><a href="#calendar" class="nav-link block py-2 hover:text-indigo-200 transition">Calendar</a></li>
+<!-- Add these to the navigation menu (both desktop and mobile) -->
+<li><a href="#password-manager" class="nav-link hover:text-indigo-200 transition">Password Manager</a></li>
+<li><a href="#world-clock" class="nav-link hover:text-indigo-200 transition">World Clock</a></li>            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Dashboard -->
+        <section id="dashboard" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Age Calculator Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='age-calculator'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-birthday-cake text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Age Calculator</h3>
+                    </div>
+                    <p class="text-gray-600">Calculate your exact age based on your birth date.</p>
+                </div>
+                
+                <!-- BMI Calculator Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='bmi-calculator'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-weight text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">BMI Calculator</h3>
+                    </div>
+                    <p class="text-gray-600">Calculate your Body Mass Index and health category.</p>
+                </div>
+                
+                <!-- Pomodoro Timer Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='pomodoro'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-clock text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Pomodoro Timer</h3>
+                    </div>
+                    <p class="text-gray-600">Boost productivity with focused work sessions.</p>
+                </div>
+                
+                <!-- Countdown Timer Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='countdown'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-hourglass-half text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Countdown Timer</h3>
+                    </div>
+                    <p class="text-gray-600">Set a custom countdown for any occasion.</p>
+                </div>
+                
+                <!-- To-Do List Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='todo'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tasks text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">To-Do List</h3>
+                    </div>
+                    <p class="text-gray-600">Organize your tasks with persistent storage.</p>
+                </div>
+                
+                <!-- Calendar Card -->
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="window.location.hash='calendar'">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-calendar-alt text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Calendar</h3>
+                    </div>
+                    <p class="text-gray-600">View and manage your monthly events.</p>
+                </div>
+
+
+  
+                
+            
+
+        <!-- Age Calculator -->
+        <section id="age-calculator" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Age Calculator</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <div class="mb-4">
+                    <label for="birthdate" class="block text-gray-700 mb-2">Enter your date of birth:</label>
+                    <input type="date" id="birthdate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <button id="calculate-age" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Calculate Age</button>
+                <div id="age-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Your Age</h3>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <p class="text-3xl font-bold text-indigo-600" id="years">0</p>
+                            <p class="text-gray-600">Years</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <p class="text-3xl font-bold text-indigo-600" id="months">0</p>
+                            <p class="text-gray-600">Months</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow">
+                            <p class="text-3xl font-bold text-indigo-600" id="days">0</p>
+                            <p class="text-gray-600">Days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BMI Calculator -->
+        <section id="bmi-calculator" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">BMI Calculator</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <div class="mb-4">
+                    <label for="height" class="block text-gray-700 mb-2">Height (cm):</label>
+                    <input type="number" id="height" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="e.g. 175">
+                </div>
+                <div class="mb-4">
+                    <label for="weight" class="block text-gray-700 mb-2">Weight (kg):</label>
+                    <input type="number" id="weight" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="e.g. 70">
+                </div>
+                <button id="calculate-bmi" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition">Calculate BMI</button>
+                <div id="bmi-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Your Results</h3>
+                    <div class="bg-white p-4 rounded-lg shadow mb-4">
+                        <p class="text-4xl font-bold text-center" id="bmi-value">0</p>
+                        <p class="text-center text-gray-600">BMI</p>
+                    </div>
+                    <div class="p-3 rounded-lg" id="bmi-category">
+                        <p class="text-center font-medium">Enter your details to calculate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pomodoro Timer -->
+        <section id="pomodoro" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Pomodoro Timer</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <div class="text-center mb-6">
+                    <div class="inline-block relative">
+                        <svg class="w-64 h-64" viewBox="0 0 36 36">
+                            <path d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                                fill="none" stroke="#eee" stroke-width="3" />
+                            <path id="pomodoro-progress" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                                fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="100, 100" />
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="pomodoro-time" class="text-4xl font-bold text-gray-800">25:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-4">
+                    <p id="pomodoro-phase" class="text-xl font-semibold text-red-600">Focus Time</p>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <button id="pomodoro-start" class="bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-red-700 transition">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="pomodoro-pause" class="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 transition" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="pomodoro-reset" class="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 transition">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+                <div class="mt-6 pt-4 border-t">
+                    <p class="text-gray-600 text-center">Pomodoro cycles: 25 minutes focus, 5 minutes break</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section id="countdown" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Countdown Timer</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Set Countdown Time:</label>
+                    <div class="flex space-x-2">
+                        <input type="number" id="countdown-hours" min="0" max="23" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Hours">
+                        <input type="number" id="countdown-minutes" min="0" max="59" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Minutes">
+                        <input type="number" id="countdown-seconds" min="0" max="59" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Seconds">
+                    </div>
+                </div>
+                <button id="countdown-start" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition mb-2">Start Countdown</button>
+                <div class="text-center py-6">
+                    <span id="countdown-display" class="text-5xl font-bold text-gray-800">00:00:00</span>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <button id="countdown-pause" class="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 transition" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="countdown-reset" class="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 transition">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- To-Do List -->
+        <section id="todo" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">To-Do List</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+                <div class="flex mb-4">
+                    <input type="text" id="todo-input" class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Add a new task...">
+                    <button id="todo-add" class="bg-yellow-600 text-white py-2 px-4 rounded-r-lg hover:bg-yellow-700 transition">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="mb-4 flex justify-between">
+                    <div>
+                        <span id="todo-count" class="text-gray-600">0 tasks</span>
+                    </div>
+                    <div>
+                        <button id="todo-clear" class="text-red-600 hover:text-red-800 transition">Clear Completed</button>
+                    </div>
+                </div>
+                <ul id="todo-list" class="divide-y divide-gray-200">
+                    <!-- Tasks will be added here dynamically -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Calendar -->
+        <section id="calendar" class="mb-16 py-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Calendar</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <button id="calendar-prev" class="bg-purple-100 text-purple-600 p-2 rounded-full hover:bg-purple-200 transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="calendar-month-year" class="text-xl font-semibold text-gray-800">Month Year</h3>
+                    <button id="calendar-next" class="bg-purple-100 text-purple-600 p-2 rounded-full hover:bg-purple-200 transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 mb-2">
+                    <div class="text-center font-semibold text-gray-600 py-2">Sun</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Mon</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Tue</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Wed</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Thu</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Fri</div>
+                    <div class="text-center font-semibold text-gray-600 py-2">Sat</div>
+                </div>
+                <div id="calendar-days" class="grid grid-cols-7 gap-1">
+                    <!-- Calendar days will be generated here -->
+                </div>
+                
+                
+                
+                <!-- Event Modal -->
+                <div id="event-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                    <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                        <h3 class="text-xl font-semibold mb-4" id="event-modal-date">Add Event</h3>
+                        <div class="mb-4">
+                            <label for="event-title" class="block text-gray-700 mb-2">Event Title:</label>
+                            <input type="text" id="event-title" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <button id="event-cancel" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition">Cancel</button>
+                            <button id="event-save" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events List -->
+                <div id="events-container" class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Events</h3>
+                    <div id="events-list" class="space-y-2">
+                        <!-- Events will be listed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!-- Weather App -->
+<section id="weather" class="mb-16 py-8">
+    <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-2">Weather App</h2>
+    <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+      <div class="mb-4">
+        <label for="weather-city" class="block text-gray-700 mb-2">Enter City:</label>
+        <input type="text" id="weather-city" placeholder="e.g. Dhaka" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <button onclick="getWeather()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Get Weather</button>
+      <div id="weather-result" class="mt-6 hidden p-4 bg-blue-50 rounded-lg text-center">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="weather-location"></h3>
+        <p class="text-gray-700 text-lg"><span id="weather-temp"></span> °C</p>
+        <p class="text-gray-600" id="weather-description"></p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="currency-converter" class="bg-white py-10">
+    <div class="container mx-auto px-4">
+        <div class="max-w-xl mx-auto bg-gray-100 p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">Currency Converter</h2>
+            <form id="converter-form" class="space-y-6">
+                <!-- Flex container with responsive columns for smaller screens -->
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex flex-col w-full sm:w-1/2">
+                        <label for="from-currency" class="text-sm font-medium text-gray-700">From Currency</label>
+                        <select id="from-currency" class="mt-2 p-2 border border-gray-300 rounded-md">
+                            <option value="USD">USD - US Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="INR">INR - Indian Rupee</option>
+                            <option value="GBP">GBP - British Pound</option>
+                            <option value="AUD">AUD - Australian Dollar</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="JPY">JPY - Japanese Yen</option>
+                            <option value="CNY">CNY - Chinese Yuan</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="MXN">MXN - Mexican Peso</option>
+                            <option value="NZD">NZD - New Zealand Dollar</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="BRL">BRL - Brazilian Real</option>
+                            <option value="ZAR">ZAR - South African Rand</option>
+                            <option value="BDT">BDT - Bangladesh Taka</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col w-full sm:w-1/2">
+                        <label for="to-currency" class="text-sm font-medium text-gray-700">To Currency</label>
+                        <select id="to-currency" class="mt-2 p-2 border border-gray-300 rounded-md">
+                            <option value="USD">USD - US Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="INR">INR - Indian Rupee</option>
+                            <option value="GBP">GBP - British Pound</option>
+                            <option value="AUD">AUD - Australian Dollar</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="JPY">JPY - Japanese Yen</option>
+                            <option value="CNY">CNY - Chinese Yuan</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="MXN">MXN - Mexican Peso</option>
+                            <option value="NZD">NZD - New Zealand Dollar</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="BRL">BRL - Brazilian Real</option>
+                            <option value="ZAR">ZAR - South African Rand</option>
+                            <option value="BDT">BDT - Bangladesh Taka</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Amount input field -->
+                <div>
+                    <label for="amount" class="text-sm font-medium text-gray-700">Amount</label>
+                    <input type="number" id="amount" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Enter amount" />
+                </div>
+
+                <!-- Convert button -->
+                <div class="text-center">
+                    <button type="submit" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none">Convert</button>
+                </div>
+            </form>
+
+            <!-- Result section -->
+            <div id="result" class="mt-6 text-center text-lg font-semibold text-indigo-600">
+                <!-- The result will show here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+
+
+
+      
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; Raihan made it with the help of ai</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-indigo-300 transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-indigo-300 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-indigo-300 transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
